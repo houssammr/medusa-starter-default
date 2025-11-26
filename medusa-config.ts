@@ -21,7 +21,12 @@ module.exports = defineConfig({
     vite: () => ({
       server: {
         allowedHosts: true,
-        hmr: false,
+        hmr: {
+          protocol: 'wss',
+          host: 'medusa.bellmod.com',
+          port: 443,
+          clientPort: 443,
+        },
       },
     }),
   },

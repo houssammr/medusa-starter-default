@@ -8,6 +8,7 @@ module.exports = defineConfig({
     databaseDriverOptions: {
       ssl: false,
     },
+    redisUrl: process.env.REDIS_URL,
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
@@ -15,5 +16,12 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  admin: {
+    vite: () => ({
+      server: {
+        allowedHosts: ["medusa.bellmod.com"],
+      },
+    }),
+  },
 })

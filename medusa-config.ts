@@ -18,10 +18,6 @@ module.exports = defineConfig({
     }
   },
   admin: {
-    vite: () => ({
-      server: {
-        allowedHosts: ["medusa.bellmod.com"],
-      },
-    }),
+    disable: true,
   },
 })
